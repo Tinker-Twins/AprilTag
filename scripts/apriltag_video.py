@@ -47,9 +47,10 @@ def apriltag_video(input_streams=['../media/input/single_tag.mp4', '../media/inp
             codec = cv2.VideoWriter_fourcc(*'XVID')
             if type(stream) != int:
                 output_path = '../media/output/'+str(os.path.split(stream)[1])
+                output_path = output_path.replace(str(os.path.splitext(stream)[1]), '.avi')
             else:
-                output_path = '../media/output/'+'camera_'+str(stream)
-            output = cv2.VideoWriter(output_path+'.avi', codec, fps, (width, height))
+                output_path = '../media/output/'+'camera_'+str(stream)+'.avi'
+            output = cv2.VideoWriter(output_path, codec, fps, (width, height))
 
         while(video.isOpened()):
 

@@ -51,7 +51,8 @@ def apriltag_image(input_images=['../media/input/single_tag.jpg', '../media/inpu
 
         if output_images:
             output_path = '../media/output/'+str(os.path.split(image)[1])
-            cv2.imwrite(output_path+'.jpg', overlay)
+            output_path = output_path.replace(str(os.path.splitext(image)[1]), '.jpg')
+            cv2.imwrite(output_path, overlay)
 
         if display_images:
             cv2.imshow(detection_window_name, overlay)
