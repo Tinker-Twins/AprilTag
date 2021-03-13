@@ -8,4 +8,4 @@ cd `dirname $0`
 # Remove the dedicated output directory.
 rm -rf build
 
-echo Successfully uninstalled AprilTag
+echo Successfully uninstalled AprilTag library
