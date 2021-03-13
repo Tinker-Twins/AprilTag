@@ -209,3 +209,9 @@ Note that you must build the software per the instructions above before the Pyth
   $ cd ~/AprilTag/scripts
   $ python3 apriltag_video.py
   ```
+
+## ACKNOWLEDGEMENT
+
+The development of this library and the examples has been hugely inspired by the following sources:
+- https://github.com/AprilRobotics/apriltag
+- https://github.com/swatbotics/apriltag
