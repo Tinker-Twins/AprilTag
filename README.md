@@ -142,6 +142,7 @@ Note that you must build the software per the instructions above before the Pyth
 </p>
 
 #### Script: `apriltag.py`
+
 - `class Detector()`
   
   <p align="justify">
@@ -168,4 +169,23 @@ Note that you must build the software per the instructions above before the Pyth
                          2 - Detection data
                          3 - Detection and pose data
           annotation [bool]: Render annotated text on detection window
+  ```
+
+#### Script: `apriltag_image.py`
+
+- `function apriltag_image()`
+
+  Detect AprilTags from static images.
+
+  ```
+  Args:   input_images [list(str)]: List of images to run detection algorithm on
+          output_images [bool]: Boolean flag to save/not images annotated with detections
+          display_images [bool]: Boolean flag to display/not images annotated with detections
+          detection_window_name [str]: Title of displayed (output) tag detection window
+  ```
+- Usage:
+  
+  ```bash
+  $ cd ~/AprilTag/scripts
+  $ python3 apriltag_image.py
   ```
