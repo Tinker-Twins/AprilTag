@@ -37,7 +37,7 @@ Once the C/C++ source code is built, the executables and python wrapper can be e
 </p>
 
 ### C
-Executable: `apriltag_demo`
+#### Executable: `apriltag_demo`
 
 ```bash
 Usage: ./apriltag_demo [options] <input files>
@@ -64,7 +64,7 @@ $ ./apriltag_demo ../../media/input/*.pnm
 
 ### C++
 
-Executable: `apriltag_opencv_demo`
+#### Executable: `apriltag_opencv_demo`
 ```bash
 Usage: ./apriltag_opencv_demo [options] <input files>
   -h | --help           [ true ]       Show this help   
@@ -89,7 +89,7 @@ $ cd ~/AprilTag/build/bin
 $ ./apriltag_opencv_demo ../../media/input/*.jpg
 ```
 
-Executable: `apriltag_image`
+#### Executable: `apriltag_image`
 ```bash
 Usage: ./apriltag_image [options] <path to image file>
   -h | --help           [ true ]       Show this help   
@@ -111,7 +111,7 @@ $ ./apriltag_image ../../media/input/single_tag.jpg
 $ ./apriltag_image ../../media/input/multiple_tags.jpg
 ```
 
-Executable: `apriltag_video`
+#### Executable: `apriltag_video`
 ```bash
 Usage: ./apriltag_video [options] <camera index or path of movie file>
   -h | --help           [ true ]       Show this help   
