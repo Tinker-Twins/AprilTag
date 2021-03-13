@@ -113,7 +113,7 @@ $ ./apriltag_image ../../media/input/multiple_tags.jpg
 
 #### Executable: `apriltag_video`
 ```bash
-Usage: ./apriltag_video [options] <camera index or path of movie file>
+Usage: ./apriltag_video [options] <camera index or path to movie file>
   -h | --help           [ true ]       Show this help   
   -q | --quiet          [ false ]      Reduce output   
   -f | --family         [ tag36h11 ]   Tag family to use   
