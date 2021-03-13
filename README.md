@@ -65,7 +65,6 @@ $ ./apriltag_demo ../../media/input/*.pnm
 ### C++
 
 Executable: `apriltag_opencv_demo`
-
 ```bash
 Usage: ./apriltag_opencv_demo [options] <input files>
   -h | --help           [ true ]       Show this help   
@@ -88,4 +87,26 @@ Example:
 ```bash
 $ cd ~/AprilTag/build/bin
 $ ./apriltag_opencv_demo ../../media/input/*.jpg
+```
+
+Executable: `apriltag_image`
+```bash
+Usage: ./apriltag_image [options] <path to image file>
+  -h | --help           [ true ]       Show this help   
+  -q | --quiet          [ false ]      Reduce output   
+  -f | --family         [ tag36h11 ]   Tag family to use   
+       --border         [ 1 ]          Set tag family border size   
+  -t | --threads        [ 4 ]          Use this many CPU threads   
+  -x | --decimate       [ 1.0 ]        Decimate input image by this factor   
+  -b | --blur           [ 0.0 ]        Apply low-pass blur to input   
+  -0 | --refine-edges   [ true ]       Spend more time aligning edges of tags   
+  -1 | --refine-decode  [ true ]       Spend more time decoding tags   
+  -2 | --refine-pose    [ true ]       Spend more time computing pose of tags   
+  -c | --contours       [ true ]       Use new contour-based quad detection
+```
+Examples:
+```bash
+$ cd ~/AprilTag/build/bin
+$ ./apriltag_image ../../media/input/single_tag.jpg
+$ ./apriltag_image ../../media/input/multiple_tags.jpg
 ```
