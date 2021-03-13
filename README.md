@@ -33,10 +33,11 @@ This library supports C, C++ and Python for extended user support and seamless i
 ## USAGE
 
 <p align="justify">
-Once the C/C++ source code is built, the executables and python wrapper can be executed in order to run detections on image(s) or video stream(s). Following are some examples/demos of utilizing this library.
+Once the C/C++ source code is built, the executables and Python wrapper can be executed in order to run detections on image(s) or video stream(s). Following are some examples/demos of utilizing this library.
 </p>
 
 ### C
+
 #### Executable: `apriltag_demo`
 
 ```bash
@@ -133,3 +134,38 @@ $ ./apriltag_video 0
 $ ./apriltag_video ../../media/input/single_tag.mp4
 $ ./apriltag_video ../../media/input/multiple_tags.mp4
 ```
+
+### Python
+
+<p align="justify">
+Note that you must build the software per the instructions above before the Python wrapper can be used. If you did not install the libraries to the system-wide library directory and you are not running Python code from the <code>scripts</code> directory in this repository, your Python code must specify the path for the apriltag shared library when constructing an <code>apriltag.Detector</code> object.
+</p>
+
+#### Script: `apriltag.py`
+- `class Detector()`
+  
+  <p align="justify">
+  Python class for AprilTag detector. Initialize by passing in the output of an <code>argparse.ArgumentParser</code> on which you have called
+  <code>add_arguments</code>; or an instance of the <code>DetectorOptions</code> class.  You can also optionally pass in a list of paths to
+  search for the C dynamic library used by ctypes.
+  </p>
+  
+- `function detect_tags()`
+
+  Detect AprilTags from image.
+
+  ```
+  Args:   image [image]: Input image to run detection algorithm on
+          detector [detector]: AprilTag Detector object
+          camera_params [_camera_params]: Intrinsic parameters for camera (fx, fy, cx, cy)
+          tag_size [float]: Physical size of tag in user defined units (m or mm recommended)
+          vizualization [int]: 0 - Highlight
+                               1 - Highlight + Boxes
+                               2 - Highlight + Axes
+                               3 - Highlight + Boxes + Axes
+          verbose [int]: 0 - Silent
+                         1 - Number of detections
+                         2 - Detection data
+                         3 - Detection and pose data
+          annotation [bool]: Render annotated text on detection window
+  ```
