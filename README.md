@@ -10,7 +10,7 @@ This library supports C, C++ and Python for extended user support and seamless i
 
 ## DEPENDENCIES
 
-`OpenCV` (optional) - Note that the C library will compile successfully without this dependency. However, this dependency is required in order to run certain example/demo code.
+`OpenCV` (optional) - Note that the C library will compile successfully without this dependency. However, it is required in order to run certain example/demo code.
 
 ## SETUP
 
