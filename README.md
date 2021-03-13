@@ -30,3 +30,15 @@ This library supports C, C++ and Python for extended user support and seamless i
     $ ./uninstall.sh
     $ ./install.sh
     ```
+## USAGE
+
+<p align="justify">
+Once the C/C++ source code is built, the executables and python wrapper can be executed in order to run detections on image(s) or video stream(s). Following are some examples/demos of utilizing this library.
+</p>
+
+### C
+```bash
+$ cd ~/AprilTag/build/bin
+$ ./apriltag_demo -h
+$ ./apriltag_demo ../../media/input/*.pnm
+```
