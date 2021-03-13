@@ -1,34 +1,3 @@
-/* (C) 2013-2015, The Regents of The University of Michigan
-All rights reserved.
-
-This software may be available under alternative licensing
-terms. Contact Edwin Olson, ebolson@umich.edu, for more information.
-
-   Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-The views and conclusions contained in the software and documentation are those
-of the authors and should not be interpreted as representing official policies,
-either expressed or implied, of the FreeBSD Project.
- */
-
 #include <stdio.h>
 #include <stdint.h>
 #include <inttypes.h>
@@ -42,10 +11,6 @@ either expressed or implied, of the FreeBSD Project.
 #include "zarray.h"
 #include "getopt.h"
 
-// Invoke:
-//
-// tagtest [options] input.pnm
-
 int main(int argc, char *argv[])
 {
     getopt_t *getopt = getopt_create();
@@ -55,13 +20,13 @@ int main(int argc, char *argv[])
     getopt_add_bool(getopt, 'q', "quiet", 0, "Reduce output");
     getopt_add_string(getopt, 'f', "family", "tag36h11", "Tag family to use");
     getopt_add_int(getopt, '\0', "border", "1", "Set tag family border size");
-    getopt_add_int(getopt, 'i', "iters", "1", "Repeat processing on input set this many times");
+    getopt_add_int(getopt, 'i', "iters", "1", "Repeat processing this many times");
     getopt_add_int(getopt, 't', "threads", "4", "Use this many CPU threads");
     getopt_add_double(getopt, 'x', "decimate", "1.0", "Decimate input image by this factor");
     getopt_add_double(getopt, 'b', "blur", "0.0", "Apply low-pass blur to input");
-    getopt_add_bool(getopt, '0', "refine-edges", 1, "Spend more time trying to align edges of tags");
-    getopt_add_bool(getopt, '1', "refine-decode", 0, "Spend more time trying to decode tags");
-    getopt_add_bool(getopt, '2', "refine-pose", 0, "Spend more time trying to precisely localize tags");
+    getopt_add_bool(getopt, '0', "refine-edges", 1, "Spend more time aligning edges of tags");
+    getopt_add_bool(getopt, '1', "refine-decode", 0, "Spend more time decoding tags");
+    getopt_add_bool(getopt, '2', "refine-pose", 0, "Spend more time computing pose of tags");
     getopt_add_bool(getopt, 'c', "contours", 0, "Use new contour-based quad detection");
     getopt_add_bool(getopt, 'B', "benchmark", 0, "Benchmark mode");
 
@@ -107,7 +72,7 @@ int main(int argc, char *argv[])
     for (int iter = 0; iter < maxiters; iter++) {
 
         if (maxiters > 1)
-            printf("iter %d / %d\n", iter + 1, maxiters);
+            printf("Iteration %d / %d\n", iter + 1, maxiters);
 
         for (int input = 0; input < zarray_size(inputs); input++) {
 
@@ -122,12 +87,12 @@ int main(int argc, char *argv[])
                 while (l && path[l-1] != '/') { --l; }
                 printf("%s", path+l);
             } else if (!quiet) {
-                printf("loading %s\n", path);
+                printf("Loading %s\n", path);
             }
 
             image_u8_t *im = image_u8_create_from_pnm(path);
             if (im == NULL) {
-                printf("couldn't find %s\n", path);
+                printf("Couldn't load %s\n", path);
                 continue;
             }
 
@@ -142,7 +107,7 @@ int main(int argc, char *argv[])
                 if (benchmark) {
                     printf(" %d", det->id);
                 } else if (!quiet) {
-                    printf("detection %3d: id (%2dx%2d)-%-4d, hamming %d, goodness %8.3f, margin %8.3f\n",
+                    printf("Detection %3d: ID (%2dh%2d)-%-4d, Hamming %d, Goodness %8.3f, Margin %8.3f\n",
                            i, det->family->d*det->family->d, det->family->h, det->id, det->hamming, det->goodness, det->decision_margin);
                 }
 
@@ -155,7 +120,7 @@ int main(int argc, char *argv[])
     
                 if (!quiet) {
                     timeprofile_display(td->tp);
-                    printf("nedges: %d, nsegments: %d, nquads: %d\n", td->nedges, td->nsegments, td->nquads);
+                    printf("Edges: %d, Segments: %d, Quads: %d\n", td->nedges, td->nsegments, td->nquads);
                 }
     
                 if (!quiet)
@@ -184,9 +149,10 @@ int main(int argc, char *argv[])
                 (total_time*1e-3), (total_time*1e-3)/zarray_size(inputs));
     }
     
-    // don't deallocate contents of inputs; those are the argv
+    // Don't deallocate contents of inputs; those are the argv
     apriltag_detector_destroy(td);
 
     apriltag_family_destroy(tf);
+
     return 0;
 }

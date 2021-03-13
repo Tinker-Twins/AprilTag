@@ -15,9 +15,9 @@ int main(int argc, char** argv) {
   getopt_add_int(getopt, 't', "threads", "4", "Use this many CPU threads");
   getopt_add_double(getopt, 'x', "decimate", "1.0", "Decimate input image by this factor");
   getopt_add_double(getopt, 'b', "blur", "0.0", "Apply low-pass blur to input");
-  getopt_add_bool(getopt, '0', "refine-edges", 1, "Spend more time trying to align edges of tags");
-  getopt_add_bool(getopt, '1', "refine-decode", 0, "Spend more time trying to decode tags");
-  getopt_add_bool(getopt, '2', "refine-pose", 0, "Spend more time trying to precisely localize tags");
+  getopt_add_bool(getopt, '0', "refine-edges", 1, "Spend more time aligning edges of tags");
+  getopt_add_bool(getopt, '1', "refine-decode", 0, "Spend more time decoding tags");
+  getopt_add_bool(getopt, '2', "refine-pose", 0, "Spend more time computing pose of tags");
   getopt_add_bool(getopt, 'c', "contours", 0, "Use new contour-based quad detection");
 
   if (!getopt_parse(getopt, argc, argv, 1) || getopt_get_bool(getopt, "help")) {
@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
     cap = new cv::VideoCapture(camera_index);
   }
 
-  const char* window = "Camera";
+  const char* window = "AprilTag";
 
   cv::Mat frame;
 
@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
     
     zarray_t *detections = apriltag_detector_detect(td, im8);
     
-    printf("detected %d tags\n", zarray_size(detections));
+    printf("Detected %d tags\n", zarray_size(detections));
 
     cv::Mat display = detectionsImage(detections, frame.size(), frame.type());
     
@@ -108,8 +108,8 @@ int main(int argc, char** argv) {
       apriltag_detection_t *det;
       zarray_get(detections, i, &det);
 
-      printf("detection %3d: id (%2dx%2d)-%-4d, hamming %d, "
-             "goodness %8.3f, margin %8.3f\n",
+      printf("Detection %3d: ID (%2dh%2d)-%-4d, Hamming %d, "
+             "Goodness %8.3f, Margin %8.3f\n",
              i, det->family->d*det->family->d, det->family->h,
              det->id, det->hamming, det->goodness, det->decision_margin);
 

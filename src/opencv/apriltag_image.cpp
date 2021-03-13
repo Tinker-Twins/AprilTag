@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
   getopt_add_bool(getopt, 'c', "contours", 1, "Use new contour-based quad detection");
 
   if (!getopt_parse(getopt, argc, argv, 1) || getopt_get_bool(getopt, "help")) {
-    printf("Usage: %s [options] <Path of image file>\n", argv[0]);
+    printf("Usage: %s [options] <path to image file>\n", argv[0]);
     getopt_do_usage(getopt);
     exit(0);
   }
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
   const char* image_file = NULL;
 
   if (zarray_size(inputs) > 1) {
-    printf("Usage: %s [options] <Path of image file>\n", argv[0]);
+    printf("Usage: %s [options] <path to image file>\n", argv[0]);
     exit(-1);
   }
   else if (zarray_size(inputs)) {

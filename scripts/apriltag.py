@@ -226,15 +226,15 @@ def add_arguments(parser):
 
     parser.add_argument('-0', dest='refine_edges', default=True,
                         action='store_false',
-                        help='Spend less time trying to align edges of tags')
+                        help='Spend less time aligning edges of tags')
 
     parser.add_argument('-1', dest='refine_decode', default=False,
                         action='store_true',
-                        help='Spend more time trying to decode tags')
+                        help='Spend more time decoding tags')
 
     parser.add_argument('-2', dest='refine_pose', default=False,
                         action='store_true',
-                        help='Spend more time trying to precisely localize tags')
+                        help='Spend more time computing pose of tags')
 
     parser.add_argument('-c', dest='quad_contours', default=False,
                         action='store_true',
