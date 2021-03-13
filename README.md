@@ -110,3 +110,26 @@ $ cd ~/AprilTag/build/bin
 $ ./apriltag_image ../../media/input/single_tag.jpg
 $ ./apriltag_image ../../media/input/multiple_tags.jpg
 ```
+
+Executable: `apriltag_video`
+```bash
+Usage: ./apriltag_video [options] <camera index or path of movie file>
+  -h | --help           [ true ]       Show this help   
+  -q | --quiet          [ false ]      Reduce output   
+  -f | --family         [ tag36h11 ]   Tag family to use   
+       --border         [ 1 ]          Set tag family border size   
+  -t | --threads        [ 4 ]          Use this many CPU threads   
+  -x | --decimate       [ 1.0 ]        Decimate input image by this factor   
+  -b | --blur           [ 0.0 ]        Apply low-pass blur to input   
+  -0 | --refine-edges   [ true ]       Spend more time aligning edges of tags   
+  -1 | --refine-decode  [ false ]      Spend more time decoding tags   
+  -2 | --refine-pose    [ false ]      Spend more time computing pose of tags   
+  -c | --contours       [ false ]      Use new contour-based quad detection
+```
+Examples:
+```bash
+$ cd ~/AprilTag/build/bin
+$ ./apriltag_video 0
+$ ./apriltag_video ../../media/input/single_tag.mp4
+$ ./apriltag_video ../../media/input/multiple_tags.mp4
+```
