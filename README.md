@@ -8,6 +8,11 @@ This repository hosts the C library for AprilTag, a visual fiducial system popul
 This library supports C, C++ and Python for extended user support and seamless integration with existing software. It is capable of detecting and tracking single as well as multiple tags and computing their pose (homogeneous transformation matrix) w.r.t. camera in real-time.
 </p>
 
+| Type | Single Tag | Multiple Tags |
+| :---:| :--------: | :-----------: |
+| Image | ![Single Tag](/media/single_tag.jpg) | ![Multiple Tags](/media/multiple_tags.jpg) |
+| Video | ![Single Tag](/media/single_tag.gif) | ![Multiple Tags](/media/multiple_tags.gif) |
+
 ## DEPENDENCIES
 
 `OpenCV` (optional) - Note that the C library will compile successfully without this dependency. However, it is required in order to run certain example/demo code.
