@@ -25,3 +25,5 @@ This library supports C, C++ and Python for extended user support and seamless i
     $ cd ~/AprilTag
     $ ./uninstall.sh
     $ ./install.sh
+    ```
+    
