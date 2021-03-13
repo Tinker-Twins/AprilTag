@@ -210,6 +210,10 @@ Note that you must build the software per the instructions above before the Pyth
   $ python3 apriltag_video.py
   ```
 
+## DEMO
+
+Implementation demonstrations are available on [YouTube](https://youtu.be/cG5c2yfupLI).
+
 ## ACKNOWLEDGEMENT
 
 The development of this library and the examples has been hugely inspired by the following sources:
