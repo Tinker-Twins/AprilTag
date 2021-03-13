@@ -189,3 +189,23 @@ Note that you must build the software per the instructions above before the Pyth
   $ cd ~/AprilTag/scripts
   $ python3 apriltag_image.py
   ```
+  
+
+#### Script: `apriltag_video.py`
+
+- `function apriltag_video()`
+
+  Detect AprilTags from video stream.
+
+  ```
+  Args:   input_streams [list(int/str)]: Camera index or movie name to run detection algorithm on
+          output_stream [bool]: Boolean flag to save/not stream annotated with detections
+          display_stream [bool]: Boolean flag to display/not stream annotated with detections
+          detection_window_name [str]: Title of displayed (output) tag detection window
+  ```
+- Usage:
+  
+  ```bash
+  $ cd ~/AprilTag/scripts
+  $ python3 apriltag_video.py
+  ```
