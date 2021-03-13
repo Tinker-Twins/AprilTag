@@ -38,7 +38,24 @@ Once the C/C++ source code is built, the executables and python wrapper can be e
 
 ### C
 ```bash
+Usage: ./apriltag_demo [options] <input files>
+  -h | --help           [ true ]       Show this help   
+  -d | --debug          [ false ]      Enable debugging output (slow)   
+  -q | --quiet          [ false ]      Reduce output   
+  -f | --family         [ tag36h11 ]   Tag family to use   
+       --border         [ 1 ]          Set tag family border size   
+  -i | --iters          [ 1 ]          Repeat processing this many times   
+  -t | --threads        [ 4 ]          Use this many CPU threads   
+  -x | --decimate       [ 1.0 ]        Decimate input image by this factor   
+  -b | --blur           [ 0.0 ]        Apply low-pass blur to input   
+  -0 | --refine-edges   [ true ]       Spend more time aligning edges of tags   
+  -1 | --refine-decode  [ false ]      Spend more time decoding tags   
+  -2 | --refine-pose    [ false ]      Spend more time computing pose of tags   
+  -c | --contours       [ false ]      Use new contour-based quad detection   
+  -B | --benchmark      [ false ]      Benchmark mode
+```
+Example:
+```bash
 $ cd ~/AprilTag/build/bin
-$ ./apriltag_demo -h
 $ ./apriltag_demo ../../media/input/*.pnm
 ```
