@@ -35,6 +35,8 @@ This library supports C, C++ and Python for extended user support and seamless i
     $ ./uninstall.sh
     $ ./install.sh
     ```
+3. Calibrate your camera and note its intrinsic parameters `fx, fy, cx, cy`. You might find [this](https://github.com/Tinker-Twins/Camera-Calibration) repository helpful.
+
 ## USAGE
 
 <p align="justify">
