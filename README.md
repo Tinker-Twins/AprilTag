@@ -1,4 +1,8 @@
 # AprilTag
+
+![Github Stars](https://badgen.net/github/stars/Tinker-Twins/AprilTag?icon=github&label=stars)
+![Github Forks](https://badgen.net/github/forks/Tinker-Twins/AprilTag?icon=github&label=forks)
+
 ### AprilTag Detection and Pose Estimation Library for C, C++ and Python
 
 <p align="justify">
