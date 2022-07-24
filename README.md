@@ -27,7 +27,7 @@ This library supports C, C++ and Python for extended user support and seamless i
     ```bash
     $ git clone https://github.com/Tinker-Twins/AprilTag.git
     ```
-2. Install the library (build the source code) using the `install.sh` shell script.
+2. Install the library (build the source code) using the `install.sh` shell script (requires [CMake](https://cmake.org/)).
     ```bash
     $ cd ~/AprilTag
     $ ./install.sh
