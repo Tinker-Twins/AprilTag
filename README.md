@@ -42,7 +42,8 @@ This library supports C, C++ and Python for extended user support and seamless i
     ```
 3. Calibrate your camera and note its intrinsic parameters `fx, fy, cx, cy`. You might find [this](https://github.com/Tinker-Twins/Camera-Calibration) repository helpful.
 
-> **Note:** Refer to [this](https://youtu.be/fZ92_VMxxyo) video for a step-by-step installation and usage tutorial.
+> [!NOTE]
+> Refer to [this](https://youtu.be/fZ92_VMxxyo) video for a step-by-step installation and usage tutorial.
 
 ## USAGE
 
